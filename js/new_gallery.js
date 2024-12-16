@@ -9,55 +9,45 @@ document.addEventListener('DOMContentLoaded', function() {
   let imagePaths = [];
 
   // Function to load images from directory
-  async function loadGalleryImages() {
+  function loadGalleryImages() {
       try {
-          // Get all files from the directory
-          const files = await listImagesInDirectory('img/hannyung/');
-          imagePaths = files.sort(); // Sort files alphabetically
-
-          // Create gallery items
-          imagePaths.forEach((imagePath, index) => {
+          const directoryPath = 'img/hannyung/';
+          // 최대 50개까지 시도 (넉넉하게 설정)
+          for (let i = 1; i <= 50; i++) {
+              const paddedNumber = String(i).padStart(2, '0');
+              const imagePath = `${directoryPath}${paddedNumber}.jpg`;
+              
               const gridItem = document.createElement('div');
               gridItem.className = 'grid-item';
-              gridItem.setAttribute('data-index', index);
+              gridItem.setAttribute('data-index', imagePaths.length);
 
               const img = document.createElement('img');
               img.src = imagePath;
-              img.alt = `Wedding Photo ${index + 1}`;
+              img.alt = `Wedding Photo ${imagePaths.length + 1}`;
               img.loading = 'lazy';
+
+              // 이미지 로드 에러 처리
+              img.onerror = () => {
+                  gridItem.remove(); // 이미지가 없으면 해당 아이템 제거
+              };
+
+              // 이미지 로드 성공 시
+              img.onload = () => {
+                  imagePaths.push(imagePath);
+                  gridItem.setAttribute('data-index', imagePaths.length - 1);
+
+                  // 클릭 이벤트 추가
+                  gridItem.addEventListener('click', () => {
+                      openModal(imagePaths.length - 1);
+                  });
+              };
 
               gridItem.appendChild(img);
               galleryGrid.appendChild(gridItem);
-
-              // Add click event
-              gridItem.addEventListener('click', () => {
-                  openModal(index);
-              });
-          });
-
-          // Initialize Masonry layout after images are loaded
-          initializeMasonry();
+          }
       } catch (error) {
           console.error('Error loading gallery images:', error);
       }
-  }
-
-  // Function to get all image files from directory
-  async function listImagesInDirectory(directoryPath) {
-      // This is a simple implementation. You'll need to modify this based on your server setup
-      // For this example, we'll assume all files in the directory are images
-      const imageExtensions = ['.jpg', '.jpeg', '.png', '.gif'];
-      const files = [];
-      
-      // In a real implementation, you might want to fetch this list from your server
-      // For now, we'll manually handle the files we know exist
-      for (let i = 1; i <= 20; i++) {
-          const paddedNumber = String(i).padStart(2, '0');
-          const filename = `${directoryPath}${paddedNumber}.jpg`;
-          files.push(filename);
-      }
-
-      return files;
   }
 
   function openModal(index) {
@@ -106,33 +96,9 @@ document.addEventListener('DOMContentLoaded', function() {
       }
   });
 
-  // Update navigation buttons visibility
   function updateNavigationButtons() {
       prevBtn.style.display = currentIndex === 0 ? 'none' : 'block';
       nextBtn.style.display = currentIndex === imagePaths.length - 1 ? 'none' : 'block';
-  }
-
-  // Initialize Masonry layout
-  function initializeMasonry() {
-      const allImages = galleryGrid.getElementsByTagName('img');
-      let loadedImages = 0;
-
-      function checkAllImagesLoaded() {
-          loadedImages++;
-          if (loadedImages === allImages.length) {
-              // All images are loaded, initialize any additional layout logic here if needed
-              console.log('All images loaded');
-          }
-      }
-
-      // Add load event listener to all images
-      Array.from(allImages).forEach(img => {
-          if (img.complete) {
-              checkAllImagesLoaded();
-          } else {
-              img.addEventListener('load', checkAllImagesLoaded);
-          }
-      });
   }
 
   // Start loading images
