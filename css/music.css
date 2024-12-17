@@ -3,10 +3,10 @@
     top: 0;
     left: 0;
     right: 0;
-    height: 40px;
+    height: 45px;
     background: rgba(255, 255, 255, 0.95);
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items: center;
     padding: 0 20px;
     z-index: 1000;
@@ -24,45 +24,39 @@
     padding: 0 15px;
 }
 
-.music-toggle-btn {
+.music-controls {
+    margin-left: auto; /* 오른쪽 정렬 */
+    display: flex;
+    gap: 15px; /* 버튼 사이 간격 */
+    align-items: center;
+}
+
+.music-btn {
     background: none;
     border: none;
     cursor: pointer;
-    font-size: 20px;
+    font-size: 18px;
     padding: 8px;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 40px;
-    height: 40px;
+    width: 35px;
+    height: 35px;
     transition: all 0.3s ease;
+    border-radius: 50%;
 }
 
-.music-toggle-btn:hover {
+.music-btn:hover {
     transform: scale(1.1);
+    background: rgba(0, 0, 0, 0.05);
 }
 
-.music-toggle-btn .sound-on,
-.music-toggle-btn .sound-off {
-    transition: opacity 0.3s ease;
+.play-btn.playing {
+    content: "⏸";
 }
 
-.music-toggle-btn[data-playing="true"] .sound-on {
-    opacity: 1;
-}
-
-.music-toggle-btn[data-playing="true"] .sound-off {
-    opacity: 0;
-    display: none;
-}
-
-.music-toggle-btn[data-playing="false"] .sound-on {
-    opacity: 0;
-    display: none;
-}
-
-.music-toggle-btn[data-playing="false"] .sound-off {
-    opacity: 1;
+.mute-btn.muted {
+    content: "🔇";
 }
 
 /* 모바일 대응 */
@@ -71,7 +65,13 @@
         font-size: 14px;
     }
     
-    .music-toggle-btn {
-        font-size: 18px;
+    .music-btn {
+        font-size: 16px;
+        width: 30px;
+        height: 30px;
+    }
+
+    .music-controls {
+        gap: 10px;
     }
 }
