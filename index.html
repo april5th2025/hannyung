@@ -43,16 +43,20 @@
         } */
     </style>
     <link href="css/sakura.css" rel="stylesheet" /> 
+    <link href="css/music.css" rel="stylesheet" /> 
+
     <link href="css/carousel.css" rel="stylesheet" />    
     <link href="css/cover.css" rel="stylesheet" />    
     <!-- <link href="css/fadeinout.css" rel="stylesheet" /> -->
     <link href="css/new_gallery.css" rel="stylesheet">   
     <link href="css/animate.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
-    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=a359c43cb5dd8ffc908697e31a893561"></script>
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=5b32ba932cf984aacf925e9062a10e90"></script>
 
     <!-- JS 스크립트 추가 -->
     <script src="js/carousel.js"></script>
+    <script src="js/music.js"></script>
+
     <script src="js/new_gallery.js"></script>
     <script src="js/sakura.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" crossorigin="anonymous"></script>
@@ -198,13 +202,29 @@
             alert("복사되었습니다.");
         }
 
+        document.addEventListener('DOMContentLoaded', function() {
+        if (typeof kakao !== 'undefined') {
+            var mapContainer = document.getElementById('map');
+            var mapOption = {
+                center: new kakao.maps.LatLng(37.50640109229204, 126.75396403105532),
+                level: 3
+            };
+            var map = new kakao.maps.Map(mapContainer, mapOption);
+        }
+         });
     </script>
-
-
 </head>
 
 <body class="text-center">
     <div class="sakura-container" id="sakura-container"></div>
+    <div class="music-control-bar">
+        <div class="music-title">한융 ♥ 하은</div>
+        <button class="music-toggle-btn" id="musicToggleBtn">
+            <span class="sound-on">🔊</span>
+            <span class="sound-off">🔇</span>
+        </button>
+    </div>
+
     <div class="top-div">
         <header class="inner cover cover-container d-flex w-100 h-100 p-3 mx-auto flex-column fade-in-box">
             <h1 class="wow cover-heading" style="
