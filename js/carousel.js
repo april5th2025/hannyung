@@ -19,12 +19,13 @@ class ImageCarousel {
     }
 
     async initializeCarousel() {
-        for (let i = 1; i <= 50; i++) {
-            const paddedNumber = String(i).padStart(2, '0');
-            const imagePath = `img/hannyung/${paddedNumber}.jpg`;
-
-            try {
-                const img = document.createElement('img');
+        try {
+            const baseUrl = './img/hannyung/'; // 상대 경로로 수정
+            for (let i = 1; i <= 21; i++) {
+                const paddedNumber = String(i).padStart(2, '0');
+                const imagePath = `${baseUrl}${paddedNumber}.jpg`;
+                
+                const img = new Image();
                 img.src = imagePath;
                 
                 img.onload = () => {
@@ -35,11 +36,11 @@ class ImageCarousel {
                 };
                 
                 img.onerror = () => {
-                    // Skip failed images
+                    console.log(`이미지 로드 실패: ${imagePath}`);
                 };
-            } catch (error) {
-                console.error('Error loading image:', error);
             }
+        } catch (error) {
+            console.error('이미지 초기화 중 오류:', error);
         }
     }
 

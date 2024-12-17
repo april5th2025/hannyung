@@ -51,7 +51,6 @@
     <link href="css/new_gallery.css" rel="stylesheet">   
     <link href="css/animate.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
-    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=5b32ba932cf984aacf925e9062a10e90"></script>
 
     <!-- JS 스크립트 추가 -->
     <script src="js/carousel.js"></script>
@@ -88,14 +87,12 @@
             $("#d-day").html(result);
 
             wow.init();
-            // initWeddingPhoto();
-            kakaoMap();
-
-
+            // kakaoMap();
+          
         });
         function kakaoMap() {
 
-            var mapContainer = document.getElementById("kakaomap"); // 지도를 표시할 div
+            var mapContainer = document.getElementById("map"); // 지도를 표시할 div
             var mapOption = {
                 center: new kakao.maps.LatLng(
                     37.41448526829917,
@@ -118,47 +115,6 @@
             // 마커가 지도 위에 표시되도록 설정합니다
             marker.setMap(map);
         }
-
-        // function initWeddingPhoto() {
-        //     var images = document.querySelectorAll('img[loading]');
-        //     for (var i = 0; i < images.length; i++) {
-        //         if (images[i].complete) {
-        //             images[i].classList.add('is-loaded');
-        //         } else {
-        //             images[i].addEventListener(
-        //                 'load',
-        //                 function () {
-        //                     this.classList.add('is-loaded');
-        //                 },
-        //                 false
-        //             );
-        //         }
-        //     }
-        // }
-        var bgmStaus = false;
-
-        //bgm
-        var sound = new Howl({
-            src: ['november.mp3'],
-            volume: 1.0,
-            // autoplay: true,
-            onend : () => {
-             console.log('Finished!');
-            }
-        });
-        function play(){
-            if(bgmStaus){
-                console.log('bgmStaus::'+bgmStaus)
-            }else{
-                bgmStaus=true
-                $("#musicPlayButton").remove()
-                sound.play();
-              
-            }
-
-        }
-     
-
 
         function copy_number(id) {
             // alert(id);
@@ -202,16 +158,6 @@
             alert("복사되었습니다.");
         }
 
-        document.addEventListener('DOMContentLoaded', function() {
-        if (typeof kakao !== 'undefined') {
-            var mapContainer = document.getElementById('map');
-            var mapOption = {
-                center: new kakao.maps.LatLng(37.50640109229204, 126.75396403105532),
-                level: 3
-            };
-            var map = new kakao.maps.Map(mapContainer, mapOption);
-        }
-         });
     </script>
 </head>
 
@@ -220,12 +166,8 @@
     <div class="music-control-bar">
         <div class="music-title">한융 ♥ 하은</div>
         <div class="music-controls">
-            <button class="music-btn play-btn" id="playBtn">
-                🔊
-            </button>
-            <button class="music-btn mute-btn" id="muteBtn">
-                🔇
-            </button>
+            <button class="music-btn play-btn" id="playBtn">🔊</button>
+            <button class="music-btn mute-btn" id="muteBtn">🔇</button>
         </div>
     </div>
     <div class="top-div">
@@ -625,8 +567,27 @@
                     </p>
                 </div>
                 <br />
-                <div id="kakaomap" class="wow" style="width: 100%; height: 350px"></div>
+                <div id="map" class="wow" style="width: 100%; height: 350px"></div>
+                <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=5b32ba932cf984aacf925e9062a10e90"></script>
+                <script >
 
+                var container = document.getElementById('map');
+                        var options = {
+                            center: new kakao.maps.LatLng(33.450701, 126.570667),
+                            level: 3
+                        };
+
+                        var map = new kakao.maps.Map(container, options);
+                    // var container = document.getElementById('map');
+                    // var options = {
+                    //     center: new kakao.maps.LatLng(33.450701, 126.570667),
+                    //     level: 3
+                    // };
+
+                    // var map = new kakao.maps.Map(container, options);
+
+                </script>
+    
 
                 <div class="wow fadeInUp section6-location p-3">
                     <div class="accordion" id="accordionExample">

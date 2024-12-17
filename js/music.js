@@ -2,11 +2,22 @@ class MusicController {
     constructor() {
         this.playBtn = document.getElementById('playBtn');
         this.muteBtn = document.getElementById('muteBtn');
+        
+        // Howl 객체 생성 시 상세 옵션 추가
         this.audio = new Howl({
-            src: ['november.mp3'],
+            src: ['./november.mp3'],  // 상대 경로 사용
             loop: true,
             volume: 0.5,
-            autoplay: false
+            autoplay: false,
+            onloaderror: (error) => {
+                console.error('음악 파일 로드 실패:', error);
+            },
+            onload: () => {
+                console.log('음악 파일 로드 성공');
+            },
+            onplay: () => {
+                console.log('음악 재생 시작');
+            }
         });
         
         this.isPlaying = false;
@@ -16,10 +27,13 @@ class MusicController {
     }
 
     setupEventListeners() {
-        this.playBtn.addEventListener('click', () => this.togglePlay());
-        this.muteBtn.addEventListener('click', () => this.toggleMute());
+        if (this.playBtn) {
+            this.playBtn.addEventListener('click', () => this.togglePlay());
+        }
+        if (this.muteBtn) {
+            this.muteBtn.addEventListener('click', () => this.toggleMute());
+        }
         
-        // 페이지 가시성 변경 시 음악 제어
         document.addEventListener('visibilitychange', () => {
             if (document.hidden && this.isPlaying) {
                 this.pauseMusic();
@@ -44,36 +58,64 @@ class MusicController {
     }
 
     playMusic() {
-        this.audio.play();
-        this.isPlaying = true;
-        this.playBtn.textContent = "⏸";
-        this.updateButtonStates();
+        try {
+            this.audio.play();
+            this.isPlaying = true;
+            if (this.playBtn) {
+                this.playBtn.textContent = "🔊";  // 변경
+            }
+            this.updateButtonStates();
+        } catch (error) {
+            console.error('재생 중 오류:', error);
+        }
     }
-
+    
     pauseMusic() {
-        this.audio.pause();
-        this.isPlaying = false;
-        this.playBtn.textContent = "▶";
-        this.updateButtonStates();
+        try {
+            this.audio.pause();
+            this.isPlaying = false;
+            if (this.playBtn) {
+                this.playBtn.textContent = "🔇";  // 변경
+            }
+            this.updateButtonStates();
+        } catch (error) {
+            console.error('일시정지 중 오류:', error);
+        }
     }
-
+    
     muteMusic() {
-        this.audio.mute(true);
-        this.isMuted = true;
-        this.muteBtn.textContent = "🔇";
-        this.updateButtonStates();
+        try {
+            this.audio.mute(true);
+            this.isMuted = true;
+            if (this.muteBtn) {
+                this.muteBtn.textContent = "🔇";  // 이미 동일
+            }
+            this.updateButtonStates();
+        } catch (error) {
+            console.error('음소거 중 오류:', error);
+        }
     }
-
+    
     unmuteMusic() {
-        this.audio.mute(false);
-        this.isMuted = false;
-        this.muteBtn.textContent = "🔊";
-        this.updateButtonStates();
+        try {
+            this.audio.mute(false);
+            this.isMuted = false;
+            if (this.muteBtn) {
+                this.muteBtn.textContent = "🔊";  // 이미 동일
+            }
+            this.updateButtonStates();
+        } catch (error) {
+            console.error('음소거 해제 중 오류:', error);
+        }
     }
-
+   
     updateButtonStates() {
-        this.playBtn.classList.toggle('playing', this.isPlaying);
-        this.muteBtn.classList.toggle('muted', this.isMuted);
+        if (this.playBtn) {
+            this.playBtn.classList.toggle('playing', this.isPlaying);
+        }
+        if (this.muteBtn) {
+            this.muteBtn.classList.toggle('muted', this.isMuted);
+        }
     }
 }
 
@@ -81,7 +123,7 @@ class MusicController {
 document.addEventListener('DOMContentLoaded', () => {
     const musicController = new MusicController();
     
-    // 사용자 상호작용이 필요한 브라우저를 위한 처리
+    // 사용자 상호작용을 위한 초기화
     document.addEventListener('click', function initAudio() {
         musicController.audio.load();
         document.removeEventListener('click', initAudio);
