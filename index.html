@@ -3,8 +3,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport"
-        content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no,target-densitydpi=medium-dpi" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no,target-densitydpi=medium-dpi" />
     <meta name="description" content="최한융 ❤️ 정하은 결혼식에 초대합니다." />
     <meta name="author" content="hanseo Choi" />
     <meta name="generator" content="Jekyll v4.1.1" />
@@ -20,7 +19,7 @@
 
 
     <style>
-        .bd-placeholder-img {
+        /* .bd-placeholder-img {
             font-size: 1.125rem;
             text-anchor: middle;
             -webkit-user-select: none;
@@ -41,29 +40,19 @@
             font-family: KimNamyun;
             font-size: 1.5rem;
             opacity: 0.5;
-        }
+        } */
     </style>
     <link href="css/sakura.css" rel="stylesheet" /> 
     <link href="css/carousel.css" rel="stylesheet" />    
     <link href="css/cover.css" rel="stylesheet" />    
-    <link href="css/fadeinout.css" rel="stylesheet" />
-    <!-- CSS 링크 추가 -->
+    <!-- <link href="css/fadeinout.css" rel="stylesheet" /> -->
     <link href="css/new_gallery.css" rel="stylesheet">   
-
     <link href="css/animate.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
-    <script type="text/javascript"
-        src="//dapi.kakao.com/v2/maps/sdk.js?appkey=a359c43cb5dd8ffc908697e31a893561"></script>
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=a359c43cb5dd8ffc908697e31a893561"></script>
 
-    <link href="css/gallery.css" rel="stylesheet" />
-    <!-- PhotoSwipe -->
-    <link rel="stylesheet" href="css/photoswipe.css" />
-    <link rel="stylesheet" href="css/default-skin.css" />
-
-    <script src="js/howler.js"></script>
-    <script src="js/carousel.js"></script>
-   
     <!-- JS 스크립트 추가 -->
+    <script src="js/carousel.js"></script>
     <script src="js/new_gallery.js"></script>
     <script src="js/sakura.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" crossorigin="anonymous"></script>
@@ -95,21 +84,21 @@
             $("#d-day").html(result);
 
             wow.init();
-            initWeddingPhoto();
+            // initWeddingPhoto();
             kakaoMap();
 
 
         });
         function kakaoMap() {
 
-            var mapContainer = document.getElementById("map"), // 지도를 표시할 div
-                mapOption = {
-                    center: new kakao.maps.LatLng(
-                        37.41448526829917,
-                        126.69093930253655
-                    ), // 지도의 중심좌표
-                    level: 3, // 지도의 확대 레벨
-                };
+            var mapContainer = document.getElementById("kakaomap"); // 지도를 표시할 div
+            var mapOption = {
+                center: new kakao.maps.LatLng(
+                    37.41448526829917,
+                    126.69093930253655
+                ), // 지도의 중심좌표
+                level: 3 // 지도의 확대 레벨
+            };
 
             var map = new kakao.maps.Map(mapContainer, mapOption);
             var markerPosition = new kakao.maps.LatLng(
@@ -126,22 +115,22 @@
             marker.setMap(map);
         }
 
-        function initWeddingPhoto() {
-            var images = document.querySelectorAll('img[loading]');
-            for (var i = 0; i < images.length; i++) {
-                if (images[i].complete) {
-                    images[i].classList.add('is-loaded');
-                } else {
-                    images[i].addEventListener(
-                        'load',
-                        function () {
-                            this.classList.add('is-loaded');
-                        },
-                        false
-                    );
-                }
-            }
-        }
+        // function initWeddingPhoto() {
+        //     var images = document.querySelectorAll('img[loading]');
+        //     for (var i = 0; i < images.length; i++) {
+        //         if (images[i].complete) {
+        //             images[i].classList.add('is-loaded');
+        //         } else {
+        //             images[i].addEventListener(
+        //                 'load',
+        //                 function () {
+        //                     this.classList.add('is-loaded');
+        //                 },
+        //                 false
+        //             );
+        //         }
+        //     }
+        // }
         var bgmStaus = false;
 
         //bgm
@@ -452,7 +441,7 @@
                                 </button>
                                 <br />
                                 <img src="img/icon/family.png" width="50px" height="50px" />&nbsp;&nbsp;
-                                농협 <span id="groomParentMomAccountNum">006-02-061755</span>&nbsp;&nbsp;이정희
+                                신한  <span id="groomParentMomAccountNum">110-375-361140</span>&nbsp;&nbsp;이정희
                                 <button type="button" id="accnum110375361140" class="account_copy"
                                     data-clipboard-target="#groomParentMomAccountNum">
                                     복사
@@ -506,6 +495,14 @@
                                 우리 <span id="brideParentAccountNum">1002635234028</span>&nbsp;&nbsp;정광석
                                 <button type="button" class="account_copy"
                                     data-clipboard-target="#brideParentAccountNum">
+                                    복사
+                                </button>
+                                <br />
+                                <img src="img/icon/family.png" width="50px" height="50px" />&nbsp;&nbsp;
+
+                                기업 <span id="brideParentMomAccountNum">01032418028</span>&nbsp;&nbsp;김영례
+                                <button type="button" class="account_copy"
+                                    data-clipboard-target="#brideParentMomAccountNum">
                                     복사
                                 </button>
 
@@ -605,7 +602,7 @@
                     </p>
                 </div>
                 <br />
-                <div id="map" class="wow fadeInUp" style="width: 100%; height: 350px"></div>
+                <div id="kakaomap" class="wow" style="width: 100%; height: 350px"></div>
 
 
                 <div class="wow fadeInUp section6-location p-3">
@@ -689,12 +686,6 @@
 
     </script>
 
-
-
-
-    <script defer="defer" src="js/photoswipe.min.js"></script>
-    <script defer="defer" src="js/photoswipe-ui-default.min.js"></script>
-    <script defer="defer" src="js/gallery.js"></script>
 
 </body>
 
