@@ -55,7 +55,7 @@
             $("#d-day").html(result);
 
             wow.init();
-            // kakaoMap();
+            kakaoMap();
           
         });
 
@@ -69,73 +69,73 @@
             resetAnimation: true, // reset animation on end (default is true)
         });
    
-        // function kakaoMap() {
+        function kakaoMap() {
 
-        //     var mapContainer = document.getElementById("map"); // 지도를 표시할 div
-        //     var mapOption = {
-        //         center: new kakao.maps.LatLng(
-        //             37.41448526829917,
-        //             126.69093930253655
-        //         ), // 지도의 중심좌표
-        //         level: 3 // 지도의 확대 레벨
-        //     };
+            var mapContainer = document.getElementById("map"); // 지도를 표시할 div
+            var mapOption = {
+                center: new kakao.maps.LatLng(
+                    37.41448526829917,
+                    126.69093930253655
+                ), // 지도의 중심좌표
+                level: 3 // 지도의 확대 레벨
+            };
 
-        //     var map = new kakao.maps.Map(mapContainer, mapOption);
-        //     var markerPosition = new kakao.maps.LatLng(
-        //         37.41448526829917,
-        //         126.69093930253655
-        //     );
+            var map = new kakao.maps.Map(mapContainer, mapOption);
+            var markerPosition = new kakao.maps.LatLng(
+                37.41448526829917,
+                126.69093930253655
+            );
 
-        //     // 마커를 생성합니다
-        //     var marker = new kakao.maps.Marker({
-        //         position: markerPosition,
-        //     });
+            // 마커를 생성합니다
+            var marker = new kakao.maps.Marker({
+                position: markerPosition,
+            });
 
-        //     // 마커가 지도 위에 표시되도록 설정합니다
-        //     marker.setMap(map);
-        // }
+            // 마커가 지도 위에 표시되도록 설정합니다
+            marker.setMap(map);
+        }
 
-        // function copy_number(id) {
-        //     // alert(id);
-        //     var isIOS = false;
+        function copy_number(id) {
+            // alert(id);
+            var isIOS = false;
 
-        //     if (navigator.userAgent.match(/i(Phone|Pod)/i) != null) {
-        //         //아이폰일 경우
-        //         var obj = document.getElementById("accnum" + id);
-        //         var tmpTextarea = document.createElement("textarea");
-        //         // tmpTextarea.value = obj.childNodes[1].textContent;
-        //         tmpTextarea.value = id;
+            if (navigator.userAgent.match(/i(Phone|Pod)/i) != null) {
+                //아이폰일 경우
+                var obj = document.getElementById("accnum" + id);
+                var tmpTextarea = document.createElement("textarea");
+                // tmpTextarea.value = obj.childNodes[1].textContent;
+                tmpTextarea.value = id;
 
-        //         document.body.appendChild(tmpTextarea);
-        //         tmpTextarea.select();
-        //         tmpTextarea.setSelectionRange(0, 9999); // 셀렉트 범위 설정
-        //         document.execCommand("copy");
-        //         document.body.removeChild(tmpTextarea);
-        //     } else {
-        //         //안드로이드 경우
-        //         // var obj = document.getElementById("accnum" + id);
-        //         // var range = document.createRange();
-        //         // //텍스트 정보를 Range 객체에 저장
-        //         // range.selectNode(obj.childNodes[1]); //텍스트 정보를 Range 객체에 저장
-        //         // var sel = window.getSelection();
-        //         // sel.removeAllRanges(); //기존 선택정보 삭제
-        //         // sel.addRange(range); //텍스트 정보 선택
-        //         // document.execCommand("copy"); //복사
-        //         // sel.removeRange(range); //선택 정보 삭제
+                document.body.appendChild(tmpTextarea);
+                tmpTextarea.select();
+                tmpTextarea.setSelectionRange(0, 9999); // 셀렉트 범위 설정
+                document.execCommand("copy");
+                document.body.removeChild(tmpTextarea);
+            } else {
+                //안드로이드 경우
+                // var obj = document.getElementById("accnum" + id);
+                // var range = document.createRange();
+                // //텍스트 정보를 Range 객체에 저장
+                // range.selectNode(obj.childNodes[1]); //텍스트 정보를 Range 객체에 저장
+                // var sel = window.getSelection();
+                // sel.removeAllRanges(); //기존 선택정보 삭제
+                // sel.addRange(range); //텍스트 정보 선택
+                // document.execCommand("copy"); //복사
+                // sel.removeRange(range); //선택 정보 삭제
 
-        //         var obj = document.getElementById("accnum" + id);
-        //         var tmpTextarea = document.createElement("textarea");
-        //         // tmpTextarea.value = obj.childNodes[1].textContent;
-        //         tmpTextarea.value = id;
-        //         document.body.appendChild(tmpTextarea);
-        //         tmpTextarea.select();
-        //         tmpTextarea.setSelectionRange(0, 9999); // 셀렉트 범위 설정
-        //         document.execCommand("copy");
-        //         document.body.removeChild(tmpTextarea);
-        //     }
-        //     // 복사 알림
-        //     alert("복사되었습니다.");
-        // }
+                var obj = document.getElementById("accnum" + id);
+                var tmpTextarea = document.createElement("textarea");
+                // tmpTextarea.value = obj.childNodes[1].textContent;
+                tmpTextarea.value = id;
+                document.body.appendChild(tmpTextarea);
+                tmpTextarea.select();
+                tmpTextarea.setSelectionRange(0, 9999); // 셀렉트 범위 설정
+                document.execCommand("copy");
+                document.body.removeChild(tmpTextarea);
+            }
+            // 복사 알림
+            alert("복사되었습니다.");
+        }
     </script>
 </head>
 <audio id="bgMusic" preload="auto" loop>
@@ -342,7 +342,7 @@
                     신랑 • 혼주측 계좌번호 보기
                 </button>
                 
-                <!-- <div class="modal fade" id="groom" tabindex="-1" aria-labelledby="groom" aria-hidden="true">
+                <div class="modal fade" id="groom" tabindex="-1" aria-labelledby="groom" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content">
                             <div class="modal-header">
@@ -390,14 +390,14 @@
                             </div>
                         </div>
                     </div>
-                </div> -->
+                </div>
 
                 
-                <!-- <button type="button" class="wow  btn section7-button" data-toggle="modal" data-target="#bride">
+                <button type="button" class="wow  btn section7-button" data-toggle="modal" data-target="#bride">
                     신부 • 혼주측 계좌번호 보기
-                </button> -->
+                </button>
                 
-                <!-- <div class="modal fade" id="bride" tabindex="-1" aria-labelledby="bride" aria-hidden="true">
+                <div class="modal fade" id="bride" tabindex="-1" aria-labelledby="bride" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content">
                             <div class="modal-header">
@@ -448,13 +448,13 @@
                             </div>
                         </div>
                     </div>
-                </div> -->
+                </div>
                 <br /><br />
             </div>
             <hr class="cover-container" /><br />
             <br />
 
-            <!-- <div class="wow  section5 inner cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+            <div class="wow  section5 inner cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
                 
                 <p class="section5-title section5-main-custom"> Wedding Day</p>
                 <p class="section5-title section5-sub-custom" style="margin-top: 0">
@@ -520,11 +520,11 @@
                     한융 ❤️ 하은 결혼식이 <span id="d-day"></span>일 남았습니다.
                 </p>
 
-            </div> -->
+            </div>
             <br /> <br />
             <hr class="cover-container" />
             <!-- 지도 -->
-            <!-- <div class="wow  inner cover-container d-flex w-100 h-100 mx-auto flex-column">
+            <div class="wow  inner cover-container d-flex w-100 h-100 mx-auto flex-column">
                 <br /><br />
                 <p class="wow  section6-title section6-main">오시는길</p>
                 <div class="wow  section6-title">
@@ -613,7 +613,7 @@
                 </div>
                 <br /><br />
                 <br /><br />
-            </div> -->
+            </div>
             <footer class="pt-5 text-muted text-center text-small section8">
                 <p class="mb-1">© 2025-04-05 Hanyung, Haeun</p>
                 <br /><br />

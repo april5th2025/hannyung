@@ -8,14 +8,14 @@ function createMusicAlert() {
         <div id="musicAlertModal" class="music-alert-overlay">
             <div class="music-alert-content">
                 <div class="music-alert-box">
-                    <h2> 🔴🔺🟥 </h2>
+                    <h2>💌 참석 여부 </h2>
                     <p>결혼식에 참석여부를 작성하였나요?</p>
                     <div class="button-container">
                         <button id="confirmMusic" class="music-alert-button">예</button>
                         <button id="declineMusic" class="music-alert-button decline">아니오</button>
                     </div>
                 </div>
-            </div>
+            </div> 
         </div>
     `;
 
@@ -178,7 +178,8 @@ document.addEventListener('DOMContentLoaded', function() {
     if (declineBtn) {
         declineBtn.addEventListener('click', function(e) {
             e.stopPropagation();
-            closeModal();
+            // initializeAudio();
+            // closeModal();
             window.location.href = 'https://forms.gle/FLMyisC5LcKMUm2p8';
         });
     }
