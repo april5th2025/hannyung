@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no,target-densitydpi=medium-dpi" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no" />
     <meta name="description" content="최한융 ❤️ 정하은 결혼식에 초대합니다." />
     <meta name="author" content="hanseo Choi" />
     <meta name="generator" content="Jekyll v4.1.1" />
@@ -15,36 +15,14 @@
     <meta property="og:image:height" content="800" />
     <meta property="og:description" content=" 🎉2025.04.05 경원대로 322 원인재 한옥🎉 " />
     <meta name="format-detection" content="telephone=no" />
+    <meta http-equiv="Content-Security-Policy" content="media-src *">
+
     <title>최한융, 정하은의 모바일 청첩장</title>
 
-
     <style>
-        /* .bd-placeholder-img {
-            font-size: 1.125rem;
-            text-anchor: middle;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-        }
-
-        @media (min-width: 768px) {
-            .bd-placeholder-img-lg {
-                font-size: 3.5rem;
-            }
-        }  
-        p.musicPlayClass {
-            color: rgb(0, 0, 0);
-            text-shadow: none;
-            text-align: center;
-            font-family: KimNamyun;
-            font-size: 1.5rem;
-            opacity: 0.5;
-        } */
     </style>
     <link href="css/sakura.css" rel="stylesheet" /> 
     <link href="css/music.css" rel="stylesheet" /> 
-
     <link href="css/carousel.css" rel="stylesheet" />    
     <link href="css/cover.css" rel="stylesheet" />    
     <!-- <link href="css/fadeinout.css" rel="stylesheet" /> -->
@@ -53,9 +31,10 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
 
     <!-- JS 스크립트 추가 -->
+     
     <script src="js/carousel.js"></script>
     <script src="js/music.js"></script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.3/howler.min.js"></script>
     <script src="js/new_gallery.js"></script>
     <script src="js/sakura.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" crossorigin="anonymous"></script>
@@ -67,17 +46,6 @@
         integrity="sha512-ePtegHW811NTnZd0Er1UxtBb8dizKEdSzANYy/UhxM40FC2yCWwb1CQrj03BPbrs6XdUkcHuyVn9Xq9q0Lm34g=="
         crossorigin="anonymous"></script>
     <script>
-        var wow = new WOW({
-            boxClass: "wow", // animated element css class (default is wow)
-            animateClass: "animated", // animation css class (default is animated)
-            offset: 80, // distance to the element when triggering the animation (default is 0)
-            mobile: true, // trigger animations on mobile devices (default is true)
-            live: true, // act on asynchronously loaded content (default is true)
-            scrollContainer: null, // optional scroll container selector, otherwise use window,
-            resetAnimation: true, // reset animation on end (default is true)
-        });
-
-
         $(document).ready(function () {
             let date = new Date("2025-04-05T00:00:00+0900");
             let currentDate = new Date();
@@ -90,86 +58,97 @@
             // kakaoMap();
           
         });
-        function kakaoMap() {
 
-            var mapContainer = document.getElementById("map"); // 지도를 표시할 div
-            var mapOption = {
-                center: new kakao.maps.LatLng(
-                    37.41448526829917,
-                    126.69093930253655
-                ), // 지도의 중심좌표
-                level: 3 // 지도의 확대 레벨
-            };
+        var wow = new WOW({
+            boxClass: "wow", // animated element css class (default is wow)
+            animateClass: "animated", // animation css class (default is animated)
+            offset: 80, // distance to the element when triggering the animation (default is 0)
+            mobile: true, // trigger animations on mobile devices (default is true)
+            live: true, // act on asynchronously loaded content (default is true)
+            scrollContainer: null, // optional scroll container selector, otherwise use window,
+            resetAnimation: true, // reset animation on end (default is true)
+        });
+   
+        // function kakaoMap() {
 
-            var map = new kakao.maps.Map(mapContainer, mapOption);
-            var markerPosition = new kakao.maps.LatLng(
-                37.41448526829917,
-                126.69093930253655
-            );
+        //     var mapContainer = document.getElementById("map"); // 지도를 표시할 div
+        //     var mapOption = {
+        //         center: new kakao.maps.LatLng(
+        //             37.41448526829917,
+        //             126.69093930253655
+        //         ), // 지도의 중심좌표
+        //         level: 3 // 지도의 확대 레벨
+        //     };
 
-            // 마커를 생성합니다
-            var marker = new kakao.maps.Marker({
-                position: markerPosition,
-            });
+        //     var map = new kakao.maps.Map(mapContainer, mapOption);
+        //     var markerPosition = new kakao.maps.LatLng(
+        //         37.41448526829917,
+        //         126.69093930253655
+        //     );
 
-            // 마커가 지도 위에 표시되도록 설정합니다
-            marker.setMap(map);
-        }
+        //     // 마커를 생성합니다
+        //     var marker = new kakao.maps.Marker({
+        //         position: markerPosition,
+        //     });
 
-        function copy_number(id) {
-            // alert(id);
-            var isIOS = false;
+        //     // 마커가 지도 위에 표시되도록 설정합니다
+        //     marker.setMap(map);
+        // }
 
-            if (navigator.userAgent.match(/i(Phone|Pod)/i) != null) {
-                //아이폰일 경우
-                var obj = document.getElementById("accnum" + id);
-                var tmpTextarea = document.createElement("textarea");
-                // tmpTextarea.value = obj.childNodes[1].textContent;
-                tmpTextarea.value = id;
+        // function copy_number(id) {
+        //     // alert(id);
+        //     var isIOS = false;
 
-                document.body.appendChild(tmpTextarea);
-                tmpTextarea.select();
-                tmpTextarea.setSelectionRange(0, 9999); // 셀렉트 범위 설정
-                document.execCommand("copy");
-                document.body.removeChild(tmpTextarea);
-            } else {
-                //안드로이드 경우
-                // var obj = document.getElementById("accnum" + id);
-                // var range = document.createRange();
-                // //텍스트 정보를 Range 객체에 저장
-                // range.selectNode(obj.childNodes[1]); //텍스트 정보를 Range 객체에 저장
-                // var sel = window.getSelection();
-                // sel.removeAllRanges(); //기존 선택정보 삭제
-                // sel.addRange(range); //텍스트 정보 선택
-                // document.execCommand("copy"); //복사
-                // sel.removeRange(range); //선택 정보 삭제
+        //     if (navigator.userAgent.match(/i(Phone|Pod)/i) != null) {
+        //         //아이폰일 경우
+        //         var obj = document.getElementById("accnum" + id);
+        //         var tmpTextarea = document.createElement("textarea");
+        //         // tmpTextarea.value = obj.childNodes[1].textContent;
+        //         tmpTextarea.value = id;
 
-                var obj = document.getElementById("accnum" + id);
-                var tmpTextarea = document.createElement("textarea");
-                // tmpTextarea.value = obj.childNodes[1].textContent;
-                tmpTextarea.value = id;
-                document.body.appendChild(tmpTextarea);
-                tmpTextarea.select();
-                tmpTextarea.setSelectionRange(0, 9999); // 셀렉트 범위 설정
-                document.execCommand("copy");
-                document.body.removeChild(tmpTextarea);
-            }
-            // 복사 알림
-            alert("복사되었습니다.");
-        }
+        //         document.body.appendChild(tmpTextarea);
+        //         tmpTextarea.select();
+        //         tmpTextarea.setSelectionRange(0, 9999); // 셀렉트 범위 설정
+        //         document.execCommand("copy");
+        //         document.body.removeChild(tmpTextarea);
+        //     } else {
+        //         //안드로이드 경우
+        //         // var obj = document.getElementById("accnum" + id);
+        //         // var range = document.createRange();
+        //         // //텍스트 정보를 Range 객체에 저장
+        //         // range.selectNode(obj.childNodes[1]); //텍스트 정보를 Range 객체에 저장
+        //         // var sel = window.getSelection();
+        //         // sel.removeAllRanges(); //기존 선택정보 삭제
+        //         // sel.addRange(range); //텍스트 정보 선택
+        //         // document.execCommand("copy"); //복사
+        //         // sel.removeRange(range); //선택 정보 삭제
 
+        //         var obj = document.getElementById("accnum" + id);
+        //         var tmpTextarea = document.createElement("textarea");
+        //         // tmpTextarea.value = obj.childNodes[1].textContent;
+        //         tmpTextarea.value = id;
+        //         document.body.appendChild(tmpTextarea);
+        //         tmpTextarea.select();
+        //         tmpTextarea.setSelectionRange(0, 9999); // 셀렉트 범위 설정
+        //         document.execCommand("copy");
+        //         document.body.removeChild(tmpTextarea);
+        //     }
+        //     // 복사 알림
+        //     alert("복사되었습니다.");
+        // }
     </script>
 </head>
-
+<audio id="bgMusic" preload="auto" loop>
+    <source src="./november.mp3" type="audio/mpeg">
+</audio>
 <body class="text-center">
     <div class="sakura-container" id="sakura-container"></div>
     <div class="music-control-bar">
-        <div class="music-title">한융 ♥ 하은</div>
-        <div class="music-controls">
-            <button class="music-btn play-btn" id="playBtn">🔊</button>
-            <button class="music-btn mute-btn" id="muteBtn">🔇</button>
-        </div>
+    <div class="music-title">한융 ♥ 하은</div>
+    <div class="music-controls">
+        <button class="music-btn" id="musicBtn">🔊</button>
     </div>
+</div>
     <div class="top-div">
         <header class="inner cover cover-container d-flex w-100 h-100 p-3 mx-auto flex-column fade-in-box">
             <h1 class="wow cover-heading" style="
@@ -188,9 +167,6 @@
                 <br />
                 <br />
                 <p class="top-title-custom">저희 결혼합니다.</p>
-                <p id="musicPlayButton" onclick="play();" class="top-title-custom musicPlayClass">MUSIC PLAY🎵 </p>
-
-                
             </h1>
         </header>
         
@@ -205,7 +181,7 @@
                 <hr class="cover-container" />
                 <br />
             </div>
-            <div class="wow fadeInUp">
+            <div class="wow ">
                 <p class="section1-title section1-main-custom">
                     너와 함께한 날은 모두, 내가 가장 좋아하는 날이다. <br />
                     그래서 오늘은, 나의 새로운, 가장 좋아하는 날이다. 
@@ -214,7 +190,7 @@
                 <br />
             </div>
 
-            <div class="wow fadeInUp">
+            <div class="wow ">
                 <div class="section1-title section1-sub2-custom">
                     최향진 / 이정희<span class="small">의&nbsp아들&nbsp&nbsp</span>최한융<br />
                     정광석 / 김영례<span class="small">의&nbsp&nbsp&nbsp딸&nbsp&nbsp&nbsp</span>정하은
@@ -224,7 +200,7 @@
             <hr class="cover-container" />
             <br />
             <p
-                class="wow fadeInUp section2-title section2-main-custom inner cover cover-container d-flex w-100 h-100 p-5 mx-auto flex-column">
+                class="wow  section2-title section2-main-custom inner cover cover-container d-flex w-100 h-100 p-5 mx-auto flex-column">
                 축하해 주시는 모든 분들에게
                 <br />
                 <br />
@@ -243,26 +219,21 @@
             
             <br /><br /><br /><br />
             <hr class="cover-container" />
-            <p class="wow fadeInUp section3-title section3-main">Wedding Photo</p>
-            <!-- Gallery Section -->
+            <p class="wow  section3-title section3-main">Wedding Photo</p>
+                        
             <div class="carousel-container">
                 <div class="carousel-wrapper">
                     <div class="carousel-track" id="carousel-track">
-                        <!-- Images will be dynamically loaded here -->
                     </div>
                 </div>
                 
-                <!-- Navigation Arrows -->
                 <button class="carousel-button prev" aria-label="Previous slide">&lt;</button>
                 <button class="carousel-button next" aria-label="Next slide">&gt;</button>
                 
-                <!-- Dots Indicator -->
                 <div class="carousel-dots" id="carousel-dots">
-                    <!-- Dots will be dynamically added here -->
                 </div>
             </div>
             
-            <!-- Modal for fullscreen view -->
             <div class="modal-overlay">
                 <div class="modal-content">
                     <span class="modal-close">&times;</span>
@@ -274,7 +245,7 @@
 
             <hr class="cover-container" />
 
-            <div class="wow fadeInUp">
+            <div class="wow ">
                 <br /><br />
                 <div class="container section4-title">
                     <div class="row">
@@ -360,20 +331,18 @@
             </div>
             <hr class="cover-container" />
 
-            <div class="wow fadeInUp section7 inner cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+            <div class="wow  section7 inner cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
                 <br /><br />
-                <p class="wow fadeInUp section7-title section7-main">
+                <p class="wow  section7-title section7-main">
                     "참석이 어려우신 분들은<br />
                     축하의 마음을 전해주세요"
                 </p>
                 <br />
-                <!-- Button trigger modal -->
-                <button type="button" class="wow fadeInUp btn section7-button" data-toggle="modal" data-target="#groom">
+                <button type="button" class="wow  btn section7-button" data-toggle="modal" data-target="#groom">
                     신랑 • 혼주측 계좌번호 보기
                 </button>
-
-                <!-- Modal -->
-                <div class="modal fade" id="groom" tabindex="-1" aria-labelledby="groom" aria-hidden="true">
+                
+                <!-- <div class="modal fade" id="groom" tabindex="-1" aria-labelledby="groom" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content">
                             <div class="modal-header">
@@ -421,14 +390,14 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
 
-                <!-- Button trigger modal -->
-                <button type="button" class="wow fadeInUp btn section7-button" data-toggle="modal" data-target="#bride">
+                
+                <!-- <button type="button" class="wow  btn section7-button" data-toggle="modal" data-target="#bride">
                     신부 • 혼주측 계좌번호 보기
-                </button>
-                <!-- Modal -->
-                <div class="modal fade" id="bride" tabindex="-1" aria-labelledby="bride" aria-hidden="true">
+                </button> -->
+                
+                <!-- <div class="modal fade" id="bride" tabindex="-1" aria-labelledby="bride" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content">
                             <div class="modal-header">
@@ -479,19 +448,19 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
                 <br /><br />
             </div>
             <hr class="cover-container" /><br />
             <br />
 
-            <div class="wow fadeInUp section5 inner cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+            <!-- <div class="wow  section5 inner cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
                 
                 <p class="section5-title section5-main-custom"> Wedding Day</p>
                 <p class="section5-title section5-sub-custom" style="margin-top: 0">
                     2025년 4월 5일 · 토요일 · 오후 12시
                 </p>
-                <table class="wow fadeInUp section5-title section5-table">
+                <table class="wow  section5-title section5-table">
                     <tr>
                         <td class="sun">S</td>
                         <td>M</td>
@@ -547,18 +516,18 @@
                         <td></td>
                     </tr>
                 </table>
-                <p class="wow fadeInUp section5-title-custom section5-sub-custom" style="margin-top: 1.3em">
+                <p class="wow section5-title-custom section5-sub-custom" style="margin-top: 1.3em">
                     한융 ❤️ 하은 결혼식이 <span id="d-day"></span>일 남았습니다.
                 </p>
 
-            </div>
+            </div> -->
             <br /> <br />
             <hr class="cover-container" />
-
-            <div class="wow fadeInUp inner cover-container d-flex w-100 h-100 mx-auto flex-column">
+            <!-- 지도 -->
+            <!-- <div class="wow  inner cover-container d-flex w-100 h-100 mx-auto flex-column">
                 <br /><br />
-                <p class="wow fadeInUp section6-title section6-main">오시는길</p>
-                <div class="wow fadeInUp section6-title">
+                <p class="wow  section6-title section6-main">오시는길</p>
+                <div class="wow  section6-title">
                     <p class="section6-location-main" style="margin-bottom: 0">
                         인천광역시 연수구 경원대로 322
                     </p>
@@ -589,7 +558,7 @@
                 </script>
     
 
-                <div class="wow fadeInUp section6-location p-3">
+                <div class="wow  section6-location p-3">
                     <div class="accordion" id="accordionExample">
                         <div class="card">
                             <div class="card-header" id=" headingTwo">
@@ -637,12 +606,6 @@
                                     <p>위 아이콘을 클릭해주세요! </p>
                                     <p class="searchInfo" style="font-weight: bold;">세이브존 B2층 ~ B4층 주차장 혹은 맞은편 AJ파크 주차장을 이용해주세요 </p>
                                     <br />
-
-                                    
-                                    <!-- <p class="searchInfo">안전운전 하시고 조심히 와주세요 </p>
-                                    <p class="searchInfo">감사하는 마음으로 반갑게 </p>
-                                    <p class="searchInfo">맞이할 준비가되었습니다 :) </p> -->
-                                  
                                 </div>
                             </div>
                         </div>
@@ -650,7 +613,7 @@
                 </div>
                 <br /><br />
                 <br /><br />
-            </div>
+            </div> -->
             <footer class="pt-5 text-muted text-center text-small section8">
                 <p class="mb-1">© 2025-04-05 Hanyung, Haeun</p>
                 <br /><br />
