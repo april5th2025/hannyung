@@ -592,10 +592,13 @@
     </script>
     <script>
         var mapOptions = {
-            center: new naver.maps.LatLng(37.3595704, 127.105399),
+            center: new naver.maps.LatLng(37.4147161, 126.6905690),
             zoom: 10
         };
-        
+        var marker = new naver.maps.Marker({
+            position: new naver.maps.LatLng(37.4147161, 126.6905690),
+            map: map
+        });
         var map = new naver.maps.Map('map', mapOptions);
     </script>
 
