@@ -118,7 +118,7 @@ function initializeAudio() {
     sound = new Howl({
         src: ['november.mp3'], // GitHub Pages용 경로
         loop: true,
-        volume: 1.0,
+        volume: 0.5,
         html5: true
     });
 
