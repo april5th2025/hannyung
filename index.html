@@ -600,11 +600,12 @@
             position: new naver.maps.LatLng(37.4128476, 126.6892205),
             map: map,
             icon: {
-                url: HOME_PATH +'/img/parking_marker.png',
-                size: new naver.maps.Size(40, 42),
-                origin: new naver.maps.Point(0, 0),
-                anchor: new naver.maps.Point(25, 26)
-            }
+            content: '<img src="'+ HOME_PATH +'/img/parking_marker.png" alt="" ' +
+                    'style="margin: 0px; padding: 0px; border: 0px solid transparent; display: block; max-width: none; max-height: none; ' +
+                    '-webkit-user-select: none; position: absolute; width: 22px; height: 35px; left: 0px; top: 0px;">',
+            size: new naver.maps.Size(22, 35),
+            anchor: new naver.maps.Point(11, 35)
+        }
         });
 
         var parking_marker = new naver.maps.Marker({
