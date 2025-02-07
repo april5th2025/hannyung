@@ -652,7 +652,7 @@ hr.cover-container::after{
   background-color: #04AA6D; /* Green */
   border: none;
   color: white;
-  padding: 6px 32px;
+  padding: 8px 20px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
