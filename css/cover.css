@@ -64,7 +64,7 @@ a:hover {
   text-shadow: none;
   text-align: center;
   font-family: KimNamyun;
-  font-size: 2.5rem;
+  font-size: 2rem;
 }
 
 .top-title-sub {
@@ -280,7 +280,7 @@ header {
 }
 .section2-main-custom {
   font-family: Cafe24Oneprettynight;
-  line-height: 1.5em;
+  line-height: 2em;
   font-size: 1.35rem;
   position: relative;
 }
@@ -290,7 +290,7 @@ header {
   content: "";
   background-image: url("../img/section2.jpg");
   background-size: cover;
-  background-position: right;
+  background-position: right 40%;
   opacity: 0.6;
   position: absolute;
   top: 0;
@@ -304,7 +304,7 @@ header {
   content: "";
   background-image: url("../img/section2.jpg");
   background-size: cover;
-  background-position: right;
+  background-position: right 40%;
   opacity: 0.6;
   position: absolute;
   top: 0;
