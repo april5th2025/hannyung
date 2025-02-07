@@ -582,13 +582,14 @@
             map.setCenter(wedding);
         });
         
+        var HOME_PATH = window.HOME_PATH || '.';
 
         var map = new naver.maps.Map('map', mapOptions);
         var marker = new naver.maps.Marker({
             position: new naver.maps.LatLng(37.4144582, 126.6909422),
             map: map,
             icon: {
-                url: '../img/wedding_marker.png',
+                url: HOME_PATH +'/img/wedding_marker.png',
                 size: new naver.maps.Size(40, 42),
                 origin: new naver.maps.Point(0, 0),
                 anchor: new naver.maps.Point(25, 26)
@@ -599,7 +600,7 @@
             position: new naver.maps.LatLng(37.4128476, 126.6892205),
             map: map,
             icon: {
-                url: '../img/parking_marker.png',
+                url: HOME_PATH +'/img/parking_marker.png',
                 size: new naver.maps.Size(40, 42),
                 origin: new naver.maps.Point(0, 0),
                 anchor: new naver.maps.Point(25, 26)
@@ -610,7 +611,7 @@
             position: new naver.maps.LatLng(37.4137271, 126.6861981),
             map: map,
             icon: {
-                url: '../img/parking_marker.png',
+                url: HOME_PATH +'/img/parking_marker.png',
                 size: new naver.maps.Size(40, 42),
                 origin: new naver.maps.Point(0, 0),
                 anchor: new naver.maps.Point(25, 26)
@@ -621,7 +622,7 @@
             position: new naver.maps.LatLng(37.421601, 126.6967395),
             map: map,
             icon: {
-                url: '../img/parking_marker.png',
+                url: HOME_PATH +'/img/parking_marker.png',
                 size: new naver.maps.Size(40, 42),
                 origin: new naver.maps.Point(0, 0),
                 anchor: new naver.maps.Point(25, 26)
