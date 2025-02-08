@@ -184,10 +184,6 @@ function createMusicAlert() {
     });
 }
 
-// iOS 체크 함수 추가
-function isIOS() {
-    return /iPad|iPhone|iPod/.test(navigator.userAgent);
-}
 function initializeAudio() {
     if (sound || hasStartedPlaying) return;
 
@@ -195,13 +191,10 @@ function initializeAudio() {
         src: ['november.mp3'], // GitHub Pages용 경로
         loop: true,
         volume: 0.5,
-        html5: true,
-        autoplay: !isIOS(), // iOS가 아닐 때만 자동재생
+        html5: true
     });
 
-    if (!isIOS()) {
-        sound.play();
-    }
+    sound.play();
     hasStartedPlaying = true;
     updateMusicButton();
 }
@@ -238,9 +231,11 @@ document.addEventListener('DOMContentLoaded', function() {
             
             if (isMuted) {
                 sound.volume(1.0);
+                sound.pause();
                 isMuted = false;
             } else {
                 sound.volume(0);
+                sound.play();
                 isMuted = true;
             }
             updateMusicButton();
