@@ -231,11 +231,11 @@ document.addEventListener('DOMContentLoaded', function() {
             
             if (isMuted) {
                 sound.volume(1.0);
-                sound.pause();
+                sound.play();
                 isMuted = false;
             } else {
                 sound.volume(0);
-                sound.play();
+                sound.pause();
                 isMuted = true;
             }
             updateMusicButton();
