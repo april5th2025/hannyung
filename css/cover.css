@@ -544,27 +544,6 @@ header {
 
   font-size: 1.2rem;
 }
-@media (max-width: 576px) {
-  .modal-dialog.modal-dialog-centered {
-      min-height: calc(100% - 3.5rem);
-  }
-  
-  .modal {
-      display: flex !important;
-      align-items: center;
-  }
-  
-  .modal-dialog {
-      margin: 0 auto;
-      max-width: 90%;
-      width: 90%;
-  }
-  
-  .modal-content {
-      margin: 0;
-      width: 100%;
-  }
-}
 
 .section7-main {
   font-family: Cafe24Oneprettynight;
