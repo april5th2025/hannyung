@@ -6,10 +6,7 @@
   font-family: "NanumMyeongjo-r";
   src: url("../font/NanumMyeongjo-Regular.ttf") format("truetype");
 }
-@font-face {
-  font-family: "NanumMyeongjo-e";
-  src: url("../font/NanumMyeongjo-ExtraBold.ttf") format("truetype");
-}
+
 @font-face {
   font-family: "NanumMyeongjo-b";
   src: url("../font/NanumMyeongjo-Bold.ttf") format("truetype");
@@ -17,10 +14,6 @@
 @font-face {
   font-family: "DancingScript-b";
   src: url("../font/DancingScript-Bold.ttf") format("truetype");
-}
-@font-face {
-  font-family: "KyoboHandwriting2020pdy";
-  src: url("../font/KyoboHandwriting2020pdy.ttf") format("truetype");
 }
 
 @font-face {
@@ -186,7 +179,6 @@ body {
 .cover-heading {
   margin-top: 7.5rem;
   color: #fefefe;
-  /* font-family: NanumMyeongjo-b; */
   font-family: NanumMyeongjo-b;
 }
 
@@ -551,6 +543,27 @@ header {
   font-family: Cafe24Oneprettynight;
 
   font-size: 1.2rem;
+}
+@media (max-width: 576px) {
+  .modal-dialog.modal-dialog-centered {
+      min-height: calc(100% - 3.5rem);
+  }
+  
+  .modal {
+      display: flex !important;
+      align-items: center;
+  }
+  
+  .modal-dialog {
+      margin: 0 auto;
+      max-width: 90%;
+      width: 90%;
+  }
+  
+  .modal-content {
+      margin: 0;
+      width: 100%;
+  }
 }
 
 .section7-main {
