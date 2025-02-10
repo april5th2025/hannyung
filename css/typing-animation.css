@@ -1,9 +1,9 @@
 .typing-animation {
     width: 34ch;
-    animation: typing 3s steps(22), blink .5s step-end infinite alternate;
+    animation: typing 2.9s steps(22), blink .5s step-end infinite alternate;
     white-space: nowrap;
     overflow: hidden;
-    border-right: 3px solid;
+    /* border-right: 3px solid; */
     /* font-size: 2em; */
     margin: 0 auto;
 }
