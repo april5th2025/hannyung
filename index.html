@@ -134,10 +134,17 @@
         data.values.slice(1).forEach(row => {
             if (row[3] && row[3].length >= 3) {
                 const name = row[3].charAt(0) + '*' + row[3].charAt(2);
-                const icon = row[2];
+                let icon;
+               if (row[2] === '🤵 신랑') {
+                   icon = '🤵';
+               } else if (row[2] === '👰 신부') {
+                   icon = '👰';
+               } else {
+                   icon = '👨‍👩‍👦‍👦';
+               }
                 const message = row[4] || "한융❤하은 행복하게 잘 살아";
                 
-                messageHTML += `<div class="credit-item">${name}${icon} - ${message}</div>`;
+                messageHTML += `<div class="credit-item">${name}(${icon}) - ${message}</div>`;
             }
         });
 
