@@ -404,8 +404,38 @@ function startCreditsAnimation() {
                 </button>
                 
                 <style>
-                    .modal.fade.show {
-                        padding-right: 0 !important;
+                    .modal {
+                        overflow-x: hidden !important;
+                    }
+
+                    .modal-content {
+                        border: none;
+                        width: 100% !important;
+                        margin: 0 auto;
+                        overflow: hidden;
+                    }
+
+                    /* 모달 내부 패딩 조정 */
+                    .modal-header {
+                        padding: 1rem;
+                        border-bottom: 1px solid #dee2e6;
+                    }
+
+                    .modal-body {
+                        padding: 1rem;
+                        overflow-x: hidden;
+                    }
+
+                    /* 미디어 쿼리로 모바일 대응 */
+                    @media (max-width: 576px) {
+                        .modal-dialog.modal-dialog-centered {
+                            margin: 1rem auto;
+                            width: 95%;
+                        }
+                        
+                        .modal-content {
+                            border-radius: 0.3rem;
+                        }
                     }
                     </style>
                 <div class="modal fade" id="groom" tabindex="-1" aria-labelledby="groom" aria-hidden="true">
